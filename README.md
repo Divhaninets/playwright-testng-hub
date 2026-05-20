@@ -15,19 +15,18 @@ This is a **reference library** — a complete, working framework showcasing Pla
 | **Node.js** | Runtime environment |
 | **@playwright/test** | Test runner and assertion library |
 
----
-
 ## 📁 Project Structure
 
+```
 playwright-testng-hub/
-├── pages/              # Page Object classes
-├── tests/              # Test specifications
-├── testdata/           # Test files (e.g., upload test file)
-├── playwright.config.js # Playwright configuration
-├── package.json        # NPM dependencies
-└── .gitignore         # Git ignore rules
-
----
+│
+├── pages/                  # Page Object classes
+├── tests/                  # Test specifications
+├── testdata/               # Test files (e.g., upload test file)
+├── playwright.config.js    # Playwright configuration
+├── package.json            # NPM dependencies
+└── .gitignore             # Git ignore rules
+```
 
 ## 🎯 Pages Automated (32)
 
