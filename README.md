@@ -1,62 +1,185 @@
-## Project Structure
+# Playwright TestNG Hub
 
+A comprehensive Playwright automation framework in JavaScript/TypeScript, automating all 32 pages from [the-internet.herokuapp.com](https://the-internet.herokuapp.com).
+
+This is a **reference library** — a complete, working framework showcasing Playwright's capabilities with the Page Object Model pattern.
+
+---
+
+## 📋 Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| **Playwright** | Browser automation library |
+| **JavaScript** | Programming language |
+| **Node.js** | Runtime environment |
+| **@playwright/test** | Test runner and assertion library |
+
+---
+
+## 📁 Project Structure
+
+playwright-testng-hub/
+├── pages/              # Page Object classes
+├── tests/              # Test specifications
+├── testdata/           # Test files (e.g., upload test file)
+├── playwright.config.js # Playwright configuration
+├── package.json        # NPM dependencies
+└── .gitignore         # Git ignore rules
+
+---
+
+## 🎯 Pages Automated (32)
+
+| Page | Tests | Key Features |
+|------|-------|--------------|
+| **LoginPage** | 3 | Valid/invalid login scenarios |
+| **CheckboxesPage** | 4 | Check/uncheck, state verification |
+| **DropdownPage** | 2 | Select options, verify selection |
+| **JavaScriptAlertsPage** | 4 | Alert, Confirm, Prompt handling |
+| **MultipleWindowsPage** | 1 | Window switching, new tab handling |
+| **FramesPage** | 2 | Nested frames, iframe interaction |
+| **DragAndDropPage** | 2 | Drag and drop operations |
+| **FileUploadPage** | 1 | File upload functionality |
+| **HoversPage** | 3 | Hover actions, dynamic content |
+| **DynamicLoadingPage** | 2 | Wait strategies, dynamic elements |
+| **SortableTablesPage** | 4 | Table parsing, sorting, cell access |
+| **KeyPressesPage** | 2 | Keyboard interactions |
+| **ContextMenuPage** | 1 | Right-click actions |
+| **AddRemoveElementsPage** | 4 | Dynamic element creation/deletion |
+| **BrokenImagesPage** | 2 | Image validation |
+| **NotificationMessagesPage** | 2 | Flash message handling |
+| **RedirectPage** | 1 | Navigation, URL verification |
+| **InputsPage** | 3 | Number input, validation |
+| **AbTestPage** | 1 | A/B testing scenarios |
+| **StatusCodesPage** | 4 | HTTP status code navigation |
+| **TyposPage** | 1 | Text content verification |
+| **FloatingMenuPage** | 3 | Sticky menu, scroll behavior |
+| **HorizontalSliderPage** | 2 | Slider interaction, arrow keys |
+| **GeolocationPage** | 1 | Geolocation API, permissions |
+| **InfiniteScrollPage** | 1 | Scroll behavior, lazy loading |
+| **ShadowDomPage** | 1 | Shadow DOM access |
+| **BasicAuthPage** | 1 | Basic HTTP authentication |
+| **DigestAuthPage** | 1 | Digest HTTP authentication |
+| **FormAuthPage** | 1 | Form-based login/logout |
+
+**Total: 58 Tests Passing**
+
+---
+
+## 🚀 Running Tests
+
+### Install Dependencies
+```bash
+npm install
 ```
-selenium-testng-hub/
-├── src/
-│   ├── main/java/com/divhani/
-│   │   ├── locators/          # All 8 locator types documented
-│   │   ├── utils/             # Reusable helpers (WaitUtil)
-│   │   └── java_notes/        # Java fundamentals reference
-│   └── test/
-│       ├── java/com/divhani/
-│       │   ├── base/          # BaseTest — driver setup & teardown
-│       │   ├── pages/         # Page Object classes
-│       │   ├── theinternet/   # Tests for the-internet.herokuapp.com
-│       │   ├── demoqa/        # Tests for demoqa.com
-│       │   ├── uitestingplayground/ # Tests for uitestingplayground.com
-│       │   └── utils/         # ExtentReportManager, ScreenshotUtil
-│       ├── resources/
-│       │   ├── testng.xml     # Test suite configuration
-│       │   └── log4j2.xml     # Logging configuration
-│       └── testdata/          # Test files for upload tests
-└── pom.xml
+
+### Run All Tests
+```bash
+npx playwright test
 ```
 
-## Automation Solutions
+### Run Specific Test File
+```bash
+npx playwright test tests/login.spec.js
+```
 
-### the-internet.herokuapp.com
+### Run Tests in Headed Mode (see browser)
+```bash
+npx playwright test --headed
+```
 
-| Page | Concept | Tests |
-|------|---------|-------|
-| Form Authentication | Login, assertions | 2 |
-| Checkboxes | isSelected, check, uncheck | 3 |
-| Dropdown | Select class — text, value, index | 3 |
-| JavaScript Alerts | alert, confirm, prompt | 4 |
-| Multiple Windows | window handles, switchTo | 3 |
-| Frames & iFrames | switchTo frame, defaultContent | 3 |
-| Drag and Drop | Actions class | 1 |
-| File Upload | sendKeys with file path | 2 |
-| Hovers | moveToElement | 3 |
-| Dynamic Loading | Explicit waits in practice | 2 |
-| Sortable Tables | Table traversal, cell values | 4 |
-| Key Presses | Keys class | 3 |
-| Context Menu | Right click, contextClick | 1 |
-| Add/Remove Elements | Dynamic DOM | 4 |
-| Broken Images | JavaScript execution | 3 |
-| Notification Messages | Dynamic messages | 2 |
-| Redirect Link | URL verification | 2 |
-| Horizontal Slider | Arrow keys on range input | 2 |
-| Geolocation | JavaScript geolocation mock | 2 |
-| Infinite Scroll | JavaScript scroll execution | 2 |
-| Shadow DOM | getShadowRoot() Selenium 4 | 2 |
-| A/B Testing | Page variant verification | 1 |
-| Status Codes | URL and content verification | 3 |
-| Typos | Dynamic text content | 2 |
-| Floating Menu | JavaScript scroll, fixed elements | 2 |
-| Inputs | Number input, arrow key control | 3 |
-| Key Presses | Keys class — TAB, ESCAPE, ARROW | 3 |
-| Context Menu | Right click, contextClick() | 1 |
-| Add/Remove Elements | Dynamic DOM manipulation | 4 |
-| Broken Images | JavaScript naturalWidth check | 3 |
-| Notification Messages | Dynamic flash messages | 2 |
-| Redirect Link | URL verification after redirect | 2 |
+### View HTML Report
+```bash
+npx playwright show-report
+```
+
+---
+
+## ⚙️ Configuration Highlights
+
+**playwright.config.js:**
+- **Base URL:** `https://the-internet.herokuapp.com`
+- **Headless:** `false` (browser visible during test execution)
+- **Timeout:** 30 seconds per test
+- **Screenshots:** Captured on failure
+- **Video:** Recorded on failure
+- **Reporters:** HTML report + console list
+
+---
+
+## 🎓 Key Patterns Used
+
+### Page Object Model (POM)
+Every page has its own class with locators and methods:
+```javascript
+class LoginPage {
+  constructor(page) {
+    this.page = page;
+    this.usernameInput = page.locator('#username');
+  }
+
+  async login(username, password) {
+    await this.usernameInput.fill(username);
+    // ...
+  }
+}
+```
+
+### Async/Await
+All Playwright actions are asynchronous:
+```javascript
+await page.goto('/login');
+await button.click();
+const text = await element.textContent();
+```
+
+### Built-in Waiting
+Playwright auto-waits for elements to be actionable:
+```JavaScript
+await element.click(); // Waits for element to be visible, enabled, stable
+```
+
+### Dialog Handling
+```JavaScript
+page.on('dialog', async dialog => {
+  await dialog.accept();
+});
+```
+
+### Frame/Shadow DOM Access
+```javascript
+const frame = page.frameLocator('#mce_0_ifr');
+await frame.locator('body').fill('text');
+```
+
+---
+
+## 📊 Why Playwright?
+
+✅ **Fast** — 5-10x faster than Selenium  
+✅ **Reliable** — Built-in auto-wait eliminates flaky tests  
+✅ **Modern** — Native async/await, no WebDriver needed  
+✅ **Multi-browser** — Chromium, Firefox, WebKit out of the box  
+✅ **Developer-friendly** — Great error messages, debugging tools  
+
+---
+
+## 📝 Notes
+
+- One test is skipped (`Enter key` test) due to page limitations
+- All tests run in parallel for speed
+- Screenshots and videos captured automatically on failure
+- Framework designed as a **learning reference**, not production code
+
+---
+
+## 🔗 Related Repository
+
+- **Selenium TestNG Hub:** [selenium-testng-hub](https://github.com/Divhaninets/selenium-testng-hub) — Java-based automation of the same pages
+
+---
+
+**Built by Divhani Netshiombo**  
+**Date:** May 19, 2026  
+**Purpose:** Portfolio showcase & automation reference library
